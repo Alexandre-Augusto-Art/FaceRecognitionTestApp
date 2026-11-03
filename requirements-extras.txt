@@ -1,0 +1,16 @@
+# Camadas 2 e 3 - detectores adicionais.
+# Se algum destes falhar na instalacao o app continua funcionando: o registry
+# marca o detector como indisponivel e mostra o motivo na interface.
+
+# Camada 2: SCRFD e UltraFace rodam via onnxruntime puro.
+# O pre e pos-processamento do SCRFD e implementado em app/detectors/scrfd.py
+# em vez de depender do pacote insightface, que arrasta muitas dependencias e
+# ainda nao tem suporte firme a Python 3.14. Assim tambem temos acesso direto
+# aos scores brutos, que e o que as metricas do HyperFace precisam.
+onnxruntime>=1.20
+
+# Camada 3: extras opcionais.
+# dlib-bin traz wheels pre-compiladas para Windows, evitando a necessidade de
+# CMake + Visual Studio para compilar o dlib do zero.
+dlib-bin>=19.24
+mediapipe>=0.10.14

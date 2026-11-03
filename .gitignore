@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+data/uploads/
+data/results/
+data/models/
+.hft/
+.DS_Store
+desktop.ini
